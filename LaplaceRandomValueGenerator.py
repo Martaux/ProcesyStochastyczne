@@ -19,5 +19,9 @@ print('Variance is: ', variance)
 mean = loc
 print('Mean is: ', mean)
 #funkcja autokorelacji
+a = np.arange(size)
+y = np.array(s)
+correlation = np.corrcoef(a,y)
+print('Autocorrelation is: ',correlation)
 
 #gęstość widmowa
