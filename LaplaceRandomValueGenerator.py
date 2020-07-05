@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import signal
 #wartości początkowe rozkładu zmiennej losowej
 size = int(input('Add size N: '))
 loc = float(input('Add location parametr: '))
@@ -24,4 +25,14 @@ y = np.array(s)
 correlation = np.corrcoef(a,y)
 print('Autocorrelation is: ',correlation)
 
-#gęstość widmowa
+#gęstość widmowa mocy
+freqs, psd = signal.welch(correlation)
+
+plt.figure(figsize=(5, 4))
+plt.semilogx(freqs, psd)
+plt.title('PSD: power spectral density')
+plt.xlabel('Frequency')
+plt.ylabel('Power')
+plt.tight_layout()
+plt.show()
+
